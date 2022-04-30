@@ -1,0 +1,17 @@
+:root {
+    letter-spacing: .8px;
+    --ovo-main: #81d8cf;
+}
+
+@font-face {
+    font-family: MaiYuan; 
+    src: url('@assets/font/maiyuan.otf');
+}
+
+ul{
+    padding:0 !important; 
+}
+
+* {
+    font-family: MaiYuan,'Microsoft YaHei',sans-serif !important;;
+}
