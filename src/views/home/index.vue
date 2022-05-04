@@ -20,16 +20,33 @@
     </div>
     <v-row class="home-container">
         <v-card
-          class="animated zoomIn article-card"
-          style="border-radius: 20px; opacity: 0.85;"
-        >
+          class="animated zoomIn article-card">
+          <!-- 文章封面图 -->
+          <div class="article-cover left-radius">
+            <router-link to="/articles/">
+              <v-img
+                class="on-hover"
+                width="100%"
+                height="100%"
+                src="https://static.talkxj.com/config/0bee7ba5ac70155766648e14ae2a821f.jpg"
+              />
+            </router-link>
+          </div>
           <!-- 文章信息 -->
           <div class="article-wrapper">
             <!-- 文章标题 -->
-            <router-link to="/">MIT 6.824</router-link>
+            <router-link class="article-title" to="/">策略模式初见</router-link>
             <!-- 文章基础信息 -->
             <div class="article-info">
-              
+              <span>发表于</span>
+              <time>2012</time>
+              <span class="article-separtor">|</span>
+              <span>更新于</span>
+              <span class="article-separtor">|</span>
+              <router-link to='/'>分类</router-link>
+            </div>
+            <div class="article-content">
+              请注意，此文章尚未完成。当此文章完结时，此声明将被删除。 原文传送门：Raft Q&A 此文章为原文翻译，非本人原创文章！此外，翻译内的人称均和原文保持一致！
             </div>
             <!-- 文章内容 -->
           </div>
@@ -63,7 +80,7 @@
             var cover = "https://static.talkxj.com/config/0bee7ba5ac70155766648e14ae2a821f.jpg";
             // this.$store.state.blogInfo.pageList.forEach(item => {
             //     if (item.pageLabel == "home") {
-            //     cover = item.pageCover;
+            //    cover = item.pageCover;
             //     }
             // });
             return "background: url(" + cover + ") center center / cover no-repeat;";
@@ -178,23 +195,42 @@
     }
   }
 
-  
-
-  // 文章卡片样式
-  .article-card {
-    display: flex;
-    align-items: center;
-    height: 280px;
-    width: 100%;
-    margin-top: 20px;
+  /** 文章样式 */
+  .article-wrapper {
+    padding: 0 40px;
+    .article-title {
+      display: block;
+      font-size: 2.14em;
+      line-height: 1.4;
+      color: #395386;
+      margin-bottom: 0.5rem;
+    }
+    /**文章基本信息 */
+    .article-info {
+      font-size: 90%;
+      color: #858585;
+      a {
+        color: #858585;
+      }
+    }
   }
 
-  .article-wrapper {
-    a {
-      font-size: 1.75em;
-      line-height: 1.4;
-      margin-bottom: 0.3rem;
-    }
+  .left-radius {
+    border-radius: 8px 0 0 8px !important;
+    order: 0;
+  }
+
+  .right-radius {
+    border-radius: 0 8px 8px 0 !important;
+    order: 1;
+  }
+
+  .article-content {
+    margin-top: 0.3rem;
+  }
+
+  .article-separtor {
+    margin: 0 0.3rem;
   }
 
   @media (min-width: 760px) {
@@ -209,6 +245,36 @@
     .home-container {
       max-width: 1200px;
       margin: calc(100vh - 48px) auto 28px auto;
+    }
+
+    /**文章卡片样式 **/
+    .article-card {
+      display: flex;
+      align-items: center;
+      height: 280px;
+      width: 100%;
+      margin-top: 20px;
+      &:hover .on-hover {
+        transform: scale(1.1);
+      }
+      .on-hover {
+        transition: all 0.6s;
+      }
+    }
+
+    .article-cover {
+      overflow: hidden;
+      height: 100%;
+      width: 45%;
+    }
+
+    .article-wrapper {
+      padding: 0 2.5rem;
+      width: 55%;
+      a {
+        font-size: 1.5rem;
+        transition: all 0.3s;
+      }
     }
   }
 
@@ -227,5 +293,25 @@
         width: 100%;
         margin: calc(100vh - 66px) auto 0 auto;
     }
+  }
+
+  .article-info {
+    font-size: 95%;
+    color: #858585;
+    line-height: 2;
+    margin: 0.375rem 0;
+    a {
+      font-size: 95%;
+      color: #858585 !important;
+    }
+  } 
+
+  .article-content {
+    line-height: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 </style>
