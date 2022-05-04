@@ -12,7 +12,7 @@
         </div>
         <!-- 向下滚动 -->
         <div class="scroll-down">
-          <v-icon color="#fff" class="scroll-down-effects">
+          <v-icon color="#fff" class="scroll-down-effects" @click="scrollDown">
             mdi-chevron-down
           </v-icon>
         </div>
@@ -20,7 +20,7 @@
     </div>
     <v-row class="home-container">
         <v-card
-          class="animated zoomIn article-card">
+          class="animated zoomIn article-card" v-for="index of 5" :key="index">
           <!-- 文章封面图 -->
           <div class="article-cover left-radius">
             <router-link to="/articles/">
@@ -100,7 +100,13 @@
           initTyped(input, fn, hooks) {
             // eslint-disable-next-line no-unused-vars
             const typed = new EasyTyper(this.obj, input, fn, hooks);
-          }
+          },
+          scrollDown() {
+            window.scrollTo({
+            behavior: "smooth",
+            top: document.documentElement.clientHeight
+      });
+    },
         },
         created() {
           this.init();
