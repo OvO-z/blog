@@ -4,7 +4,7 @@
     <div id="nav">
       <div class="title">
           <router-link to="/">
-            QAQ
+            Ovo's Blog
           </router-link>
         </div>
       <div class="menu">
@@ -46,7 +46,7 @@
 export default {
     data() {
       return {
-        navClass: "",
+        navClass: "nav",
       };
     },
     mounted() {
@@ -75,16 +75,18 @@ export default {
     justify-content: space-between;
   }
 
-  .nav {
-    .menu {
-      .btn {
-        text-shadow: 0.05rem 0.05rem 0.1rem rgba(0, 0, 0, 0.3);
-      }
+  .nav-fixed {
+    background: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 5px 6px -5px rgba(133, 133, 133, 0.6);
+    a {
+      color: #4c4948 !important;
     }
-    .title {
-      a {
-        text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
-      }
+  }
+
+  .nav {
+    background: rgba(0, 0, 0, 0) !important;
+    a {
+      color: #eee !important;
     }
   }
 
@@ -92,7 +94,7 @@ export default {
     display: flex;
     justify-content: center;
     align-content: flex-end;
-    font-size: 18px;
+    font-size: 16px;
     .item {
       ul {
         position: absolute;
@@ -147,7 +149,7 @@ export default {
     a {
       text-shadow: none;
       counter-reset: #fff !important;
-      font-size: 36px;
+      font-size: 18px;
       font-weight: bold;
     }
   }
